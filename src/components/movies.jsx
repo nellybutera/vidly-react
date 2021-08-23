@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
 import { getMovies } from '../services/fakeMovieService'
+import Like from './common/like'
 
 class Movies extends Component {
     state = { 
         movies: getMovies(),
         like: 0
      }
-     handleLikes = () =>{
-         return this.getLike();
-     }
      handleDelete = (movie) => {
          const movies = this.state.movies.filter(m => m._id !== movie._id)
          this.setState({ movies})
      }
-    getLike() {
-        let classes = 'fa fa-heart';
-        let like = {...this.state.like.value };
-        console.log('like',like)
-        if (like === 0) {
-            like.value++;
-            classes += '-o';
-        } else {
-            classes += '';
-        }
-        return classes;
-    }
-
+     handleLike = (movie) => {
+         const movies = [...this.state.movies]
+         const index = movies.indexOf(movie)
+         movies[index] = {...movies[index]}
+         movies[index].liked = !movies[index].liked
+         this.setState({ movies })
+     }
     render() { 
         const {length:count} = this.state.movies;
         if(count === 0) return <p>There no movies in the database</p>
@@ -40,7 +32,6 @@ class Movies extends Component {
                         <th>Stock</th>
                         <th>Rate</th>
                         <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +41,9 @@ class Movies extends Component {
                         <td>{movie.genre.name}</td>
                         <td>{movie.numberInStock}</td>
                         <td>{movie.dailyRentalRate}</td>
-                        <td><i onClick={() => this.handleLikes()} className={this.getLike()}></i></td>
+                        <td>
+                            <Like onClick={()=>this.handleLike(movie)} liked={movie.liked}></Like>
+                        </td>
                         <td><button onClick={() => this.handleDelete(movie)} className="btn btn-danger btn-sm">Delete</button></td>
                     </tr>
                     )}

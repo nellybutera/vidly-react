@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Like extends Component {
-    render() { 
-        return (  
-            <i class="fa fa-heart-o"></i>
-        )
-    }
+const Like = (props) => {
+    let classes = "fa fa-heart"
+    if(!props.liked) classes += "-o";
+    return (  <i onClick={props.onClick} style={{cursor:'pointer'}} className={classes}></i> )
 }
+ 
+
  
 export default Like;
