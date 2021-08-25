@@ -27,3 +27,4 @@ class TableBody extends Component {
 }
  
 export default TableBody;
+//finished components section
