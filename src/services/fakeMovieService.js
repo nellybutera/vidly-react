@@ -54,7 +54,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd47181e",
     title: "Gone Girl",
-    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Romance" },
     numberInStock: 7,
     dailyRentalRate: 4.5,
     cover: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F5%2F5f%2FTerminator_Dark_Fate_poster.jpg&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTerminator%3A_Dark_Fate&tbnid=cpO7Gecym0y09M&vet=12ahUKEwit47y-tNjyAhVP4oUKHexsBioQMygAegUIARCvAQ..i&docid=Gu9-FFAMg8i2PM&w=253&h=395&q=terminator%20dark%20fate&ved=2ahUKEwit47y-tNjyAhVP4oUKHexsBioQMygAegUIARCvAQ"

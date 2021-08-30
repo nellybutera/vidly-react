@@ -15,7 +15,9 @@ class App extends Component {
         <Navigation/>
         <main className="container">
           <Switch>
-          <Route path="/movies/:id" component={MovieForm} />
+          <Route path="/movies/:id" component={MovieForm}>
+            {/* <MovieForm/> */}
+          </Route>
           <Route path="/movies" component={Movies}></Route>
           <Route path="/customers" component={Customers}></Route>
           <Route path="/rentals" component={Rentals}></Route>
